@@ -1,0 +1,33 @@
+################################################################################
+# WARNING: This MongoDB deployment is not suitable for production as the data is
+# not persistently stored and will go away every time the Pod restarts. Consider
+# using a Helm chart that provisions a StatefulSet instead of Deployment.
+################################################################################
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: guestbook
+      tier: db
+  template:
+    metadata:
+      labels:
+        app: guestbook
+        tier: db
+    spec:
+      containers:
+        - name: mongo
+          image: mongo:5
+          ports:
+            - containerPort: 27017
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: "1"
+            requests:
+              memory: 200Mi
+              cpu: "0.2"
