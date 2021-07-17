@@ -1,0 +1,39 @@
+kind: ClusterConfiguration
+apiVersion: kubeadm.k8s.io/v1beta2
+kubernetesVersion: v1.21.0
+controlPlaneEndpoint: apiserver.woaisok8s.com:6443
+networking:
+  dnsDomain: k8s.woaiso.com
+  podSubnet: 10.244.0.0/16
+  serviceSubnet: 10.96.0.0/16
+imageRepository: registry.cn-hangzhou.aliyuncs.com/kainstall
+apiServer:
+  certSANs:
+    - 127.0.0.1
+    - apiserver.woaisok8s.com
+    - 172.17.0.201
+    - 172.17.0.210
+    - 172.17.0.211
+  extraArgs:
+    enable-admission-plugins: AlwaysPullImages,DefaultStorageClass
+    audit-log-path: /var/log/audit.log
+controllerManager:
+  extraArgs:
+    bind-address: 0.0.0.0
+    node-cidr-mask-size: '24'
+    deployment-controller-sync-period: '10s'
+    pod-eviction-timeout: 2m
+    terminated-pod-gc-threshold: '30'
+    experimental-cluster-signing-duration: 87600h
+    feature-gates: RotateKubeletServerCertificate=true
+    horizontal-pod-autoscaler-use-rest-clients: 'true'
+    horizontal-pod-autoscaler-sync-period: 10s
+    node-monitor-grace-period: 10s
+---
+kind: KubeletConfiguration
+apiVersion: kubelet.config.k8s.io/v1beta1
+maxPods: 200
+cgroupDriver: systemd
+runtimeRequestTimeout: 5m
+# 此配置保证了 kubelet 能在 swap 开启的情况下启动
+failSwapOn: false
