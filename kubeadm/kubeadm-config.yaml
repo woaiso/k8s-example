@@ -11,9 +11,9 @@ apiServer:
   certSANs:
     - 127.0.0.1
     - apiserver.woaisok8s.com
-    - 172.17.0.201
-    - 172.17.0.210
-    - 172.17.0.211
+    - 172.20.5.201
+    - 172.20.5.210
+    - 172.20.5.211
   extraArgs:
     enable-admission-plugins: AlwaysPullImages,DefaultStorageClass
     audit-log-path: /var/log/audit.log
