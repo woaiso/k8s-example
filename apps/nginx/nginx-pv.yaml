@@ -1,0 +1,25 @@
+# 创建一个local类型的存储卷
+# https://kubernetes.io/zh/docs/concepts/storage/volumes/#local
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nginx-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-storage
+  local:
+    path: /mnt/data/nginx-data-01
+  # 使用节点亲和性nodeAffinity保证被正确调度到对应的节点
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - k8s-master-node1
