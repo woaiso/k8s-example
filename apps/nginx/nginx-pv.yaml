@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nginx-pv
+  name: nginx-data-01
 spec:
   capacity:
     storage: 1Gi
@@ -14,6 +14,30 @@ spec:
   storageClassName: local-storage
   local:
     path: /mnt/data/nginx-data-01
+  # 使用节点亲和性nodeAffinity保证被正确调度到对应的节点
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - k8s-master-node1
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nginx-data-02
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-storage
+  local:
+    path: /mnt/data/nginx-data-02
   # 使用节点亲和性nodeAffinity保证被正确调度到对应的节点
   nodeAffinity:
     required:
