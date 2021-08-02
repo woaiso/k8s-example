@@ -13,6 +13,10 @@ spec:
       labels:
         app: mysql
     spec:
+      nodeSelector:
+        # 限定只在特定标签的节点上运行，这里采用的hostPath类型的PersistentVolume
+        # 使用这个方式可以保证不会出现找不到文件的情况
+        database: mysql
       initContainers:
       - name: init-mysql
         image: mysql:5.7
