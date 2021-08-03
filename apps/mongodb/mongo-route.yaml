@@ -1,12 +1,14 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteTCP
 metadata:
-  name: mongodb
+  name: traefik-mongodb-route
+  namespace: default
 spec:
   entryPoints:
     - web
   routes:
-  - match: Host(`mongo.woaisok8s.com`)
-    services:
-    - name: mongodb
-      port: 27017
+    - match: Host(`mongo.woaisok8s.com`)
+      kind: Rule
+      services:
+        - name: mongodb
+          port: 27017
