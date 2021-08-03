@@ -18,6 +18,8 @@ data:
         address: ":80"
       websecure:
         address: ":443"
+      mongodb:
+        address: "27017"
     providers:
       kubernetesCRD: ""
     log:

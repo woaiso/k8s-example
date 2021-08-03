@@ -43,6 +43,8 @@ spec:
               hostPort: 443          #hostPort方式，将端口暴露到集群节点
             - name: admin
               containerPort: 8080
+            - name: mongodb
+              containerPort: 27017
           resources:
             limits:
               cpu: 2000m
