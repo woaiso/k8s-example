@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: mongodb
   labels:
-    app: mondogb
+    app: mongodb
 spec:
   ports:
     - port: 27017
