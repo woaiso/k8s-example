@@ -39,12 +39,12 @@ spec:
             # Once you get things working, you should remove that whole line altogether.
             # - --certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
           resources:
-          limits:
-            memory: 512Mi
-            cpu: "1"
-          requests:
-            cpu: 500m
-            memory: 1Gi
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              cpu: 500m
+              memory: 1Gi
           ports:
             - name: web
               containerPort: 8000
