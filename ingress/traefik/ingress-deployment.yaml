@@ -43,8 +43,8 @@ spec:
               memory: 512Mi
               cpu: "1"
             requests:
-              cpu: 500m
-              memory: 1Gi
+              cpu: "0.5"
+              memory: 256Mi
           ports:
             - name: web
               containerPort: 8000
