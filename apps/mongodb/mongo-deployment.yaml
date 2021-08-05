@@ -11,12 +11,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: guestbook
+      app: mongodb
       tier: db
   template:
     metadata:
       labels:
-        app: guestbook
+        app: mongodb
         tier: db
     spec:
       containers:
@@ -24,6 +24,7 @@ spec:
           image: mongo:5
           ports:
             - containerPort: 27017
+              protocol: TCP
           resources:
             limits:
               memory: 256Mi
