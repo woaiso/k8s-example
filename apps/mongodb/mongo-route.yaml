@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: HostSNI(`mongo.woaisok8s.com`)
+    - match: HostSNI(`*`)
       kind: Rule
       services:
         - name: mongodb
