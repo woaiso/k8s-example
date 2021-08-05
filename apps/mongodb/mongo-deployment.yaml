@@ -12,12 +12,10 @@ spec:
   selector:
     matchLabels:
       app: mongodb
-      tier: db
   template:
     metadata:
       labels:
         app: mongodb
-        tier: db
     spec:
       containers:
         - name: mongo
