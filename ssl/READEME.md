@@ -12,4 +12,7 @@ openssl x509 -req -days 3650 -in woaisok8s.csr -signkey woaisok8s.key -out woais
 # 加入钥匙串
 sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain woaisok8s.crt
 sudo apachectl -k restart
+
+# 加入k8s
+kubectl create secret generic traefik-cert --from-file=ssl/woaisok8s.crt --from-file=ssl/woaisok8s.key -n kube-system
 ```

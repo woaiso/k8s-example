@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   tls:
-    secretName: kubernetes-dashboard-certs
+    secretName: traefik-cert
   routes:
     - match: Host(`dashboard.woaisok8s.com`) 
       kind: Rule
