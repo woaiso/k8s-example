@@ -12,7 +12,13 @@ data:
       dashboard: true
       debug: true
     metrics:
-      prometheus: ""
+      prometheus:
+        entryPoint: traefik
+        buckets:
+          - 0.1
+          - 0.3
+          - 1.2
+          - 5.0
     entryPoints:
       http:
         address: ":80"
