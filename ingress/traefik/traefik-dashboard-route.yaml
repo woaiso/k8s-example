@@ -5,12 +5,13 @@ metadata:
   namespace: kube-system
 spec:
   entryPoints:
+    - http
     - https
+  tls:
+    secretName: traefik-cert
   routes:
     - match: Host(`traefik.woaisok8s.com`)
       kind: Rule
       services:
         - name: traefik
           port: 8080
-  tls:
-    secretName: traefik-cert

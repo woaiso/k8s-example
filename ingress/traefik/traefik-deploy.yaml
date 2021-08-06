@@ -63,10 +63,15 @@ spec:
           volumeMounts:
             - mountPath: "/config"
               name: "config"
+            - mountPath: "/ssl"
+              name: "ssl"
       volumes:
         - name: config
           configMap:
             name: traefik-config 
+        - name: ssl
+          secret:
+            secretName: traefik-cert
       tolerations:              #设置容忍所有污点，防止节点被设置污点
         - operator: "Exists"
       nodeSelector:             #设置node筛选器，在特定label的节点上启动
