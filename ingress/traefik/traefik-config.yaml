@@ -20,8 +20,8 @@ data:
         address: ":443"
         tls
           certificates
-            CertFile = "/ssl/tls.crt"
-            KeyFile = "/ssl/tls.key"
+            CertFile: "/ssl/tls.crt"
+            KeyFile: "/ssl/tls.key"
     providers:
       kubernetesCRD: ""
     log:
