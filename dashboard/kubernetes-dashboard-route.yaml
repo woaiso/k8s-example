@@ -5,7 +5,7 @@ metadata:
   namespace: kubernetes-dashboard
 spec:
   entryPoints:
-    - websecure
+    - https
   tls:
     secretName: traefik-cert
   routes:
