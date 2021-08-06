@@ -9,6 +9,8 @@ spec:
       port: 80
     - name: https
       port: 443
+    - name: admin
+      port: 8080
   selector:
     app: traefik
 ---
@@ -41,6 +43,8 @@ spec:
             - name: https
               containerPort: 443
               hostPort: 443          #hostPort方式，将端口暴露到集群节点
+            - name: admin
+              containerPort: 8080
           resources:
             limits:
               cpu: 2000m
