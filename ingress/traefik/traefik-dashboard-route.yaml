@@ -15,3 +15,7 @@ spec:
       services:
         - name: traefik
           port: 8080
+      tls:
+        certificates:
+          - certFile: "/ssl/tls.crt"
+            keyFile: "/ssl/tls.key"
