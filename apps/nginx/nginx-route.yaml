@@ -5,7 +5,24 @@ metadata:
   namespace: default
 spec:
   entryPoints:
-    - web
+    - http
+  routes:
+    - match: Host(`www.woaisok8s.com`)
+      kind: Rule
+      services:
+        - name: nginx
+          port: 80
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-nginx-route-tls
+  namespace: default
+spec:
+  entryPoints:
+    - https
+  tls:
+    secretName: traefik-cert
   routes:
     - match: Host(`www.woaisok8s.com`)
       kind: Rule
