@@ -17,10 +17,10 @@ spec:
   - match: Host(`traefik.woaisok8s.com`)
     kind: Rule
     services:
-    - name: traefik
-      port: 8080
-    middlewares: 
-    - name: redirect-https
+      - name: traefik
+        port: 8080
+    middlewares:
+      - name: redirect-https
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
