@@ -30,6 +30,10 @@ spec:
       name: traefik
       labels:
         app: traefik
+      annotations:
+        prometheus_io_scheme: "traefik"
+        prometheus_io_path: "/metrics"
+        prometheus_io_port: "8080"
     spec:
       serviceAccountName: traefik-ingress-controller
       terminationGracePeriodSeconds: 1
