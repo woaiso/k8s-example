@@ -17,5 +17,5 @@ spec:
           port: 8080
       tls:
         certificates:
-          - certFile: "/ssl/woaisok8s.crt"
-            keyFile: "/ssl/woaisok8s.key"
+          - certFile: "/ssl/tls.crt"
+            keyFile: "/ssl/tls.key"
