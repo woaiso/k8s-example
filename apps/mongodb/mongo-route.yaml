@@ -2,10 +2,11 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteTCP
 metadata:
   name: traefik-mongodb-route
-  namespace: default
 spec:
   entryPoints:
-    - web
+    - https
+  tls:
+    secretName: traefik-cert
   routes:
     - match: HostSNI(`mongo.woaisok8s.com`)
       kind: Rule
