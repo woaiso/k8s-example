@@ -214,6 +214,7 @@ spec:
           livenessProbe:
             httpGet:
               scheme: HTTP
+              path: /
               port: 9090
             initialDelaySeconds: 30
             timeoutSeconds: 30
