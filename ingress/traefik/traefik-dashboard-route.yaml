@@ -12,5 +12,5 @@ spec:
       services:
         - name: traefik
           port: 8080
-      tls:
-        secretName: traefik-cert
+  tls:
+    secretName: traefik-cert

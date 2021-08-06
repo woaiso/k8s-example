@@ -14,12 +14,10 @@ data:
     metrics:
       prometheus: ""
     entryPoints:
-      web:
+      http:
         address: ":80"
-      websecure:
+      https:
         address: ":443"
-      mongodb:
-        address: ":27017"
     providers:
       kubernetesCRD: ""
     log:
