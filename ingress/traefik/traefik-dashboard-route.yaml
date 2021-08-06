@@ -5,7 +5,7 @@ metadata:
   namespace: kube-system
 spec:
   entryPoints:
-    - websecure
+    - https
   routes:
     - match: Host(`traefik.woaisok8s.com`)
       kind: Rule
