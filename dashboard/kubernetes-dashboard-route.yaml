@@ -14,7 +14,3 @@ spec:
       services:
         - name: kubernetes-dashboard
           port: 9090
-      tls:
-        certificates:
-          - certFile: "/ssl/tls.crt"
-            keyFile: "/ssl/tls.key"
