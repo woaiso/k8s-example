@@ -4,9 +4,7 @@ metadata:
   name: traefik-mongodb-route
 spec:
   entryPoints:
-    - https
-  tls:
-    secretName: traefik-cert
+    - mongo
   routes:
     - match: HostSNI(`mongo.woaisok8s.com`)
       kind: Rule
