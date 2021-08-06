@@ -14,3 +14,20 @@ spec:
       services:
         - name: grafana-server-svc
           port: 3000
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: prometheus-route
+  namespace: coletaconsciente
+spec:
+  entryPoints:
+    - https
+  tls:
+    secretName: traefik-cert
+  routes:
+    - match: Host(`prometheus.woaisok8s.com`) 
+      kind: Rule
+      services:
+        - name: prometheus-svc
+          port: 9090
