@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: grafana-route
+  namespace: coletaconsciente
+spec:
+  entryPoints:
+    - https
+  tls:
+    secretName: traefik-cert
+  routes:
+    - match: Host(`grafana.woaisok8s.com`) 
+      kind: Rule
+      services:
+        - name: grafana-server-svc
+          port: 3000
