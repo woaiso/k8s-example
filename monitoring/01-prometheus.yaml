@@ -250,10 +250,10 @@ spec:
             name: prometheus
         - name: prometheus-data
           persistentVolumeClaim:
-            claimName: prometheus-storage
+            claimName: 'prometheus-data'
   volumeClaimTemplates:
   - metadata:
-      name: prometheus-storage
+      name: prometheus-data
     spec:
       accessModes: [ "ReadWriteOnce" ]
       storageClassName: local-storage
