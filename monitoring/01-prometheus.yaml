@@ -240,9 +240,9 @@ spec:
           initialDelaySeconds: 30
           timeoutSeconds: 30
         volumeMounts:
-          - name: config-volume
+          - name: prometheus-storage
             mountPath: /etc/config
-          - name: prometheus-data
+          - name: prometheus-storage
             mountPath: /prometheus-data
       volumes:
         - name: config-volume
@@ -252,7 +252,7 @@ spec:
           emptyDir: {}
   volumeClaimTemplates:
   - metadata:
-      name: prometheus
+      name: prometheus-storage
     spec:
       accessModes: [ "ReadWriteOnce" ]
       storageClassName: local-storage

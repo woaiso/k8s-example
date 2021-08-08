@@ -27,9 +27,13 @@ spec:
             limits:
               cpu: "0.2"
               memory: "1Gi"
+          volumeMounts:
+          - mountPath: /var/lib/grafana
+            subPath: grafana
+            name: grafana-storage
   volumeClaimTemplates:
   - metadata:
-      name: grafana
+      name: grafana-storage
     spec:
       accessModes: [ "ReadWriteOnce" ]
       storageClassName: local-storage
