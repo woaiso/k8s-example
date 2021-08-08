@@ -26,6 +26,15 @@ spec:
             limits:
               cpu: "0.2"
               memory: "1Gi"
+  volumeClaimTemplates:
+  - metadata:
+      name: grafana
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: local-storage
+      resources:
+        requests:
+          storage: 3Gi
 ---
 apiVersion: v1
 kind: Service
