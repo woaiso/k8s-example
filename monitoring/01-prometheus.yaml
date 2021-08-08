@@ -199,7 +199,7 @@ spec:
   template:
     metadata:
       labels:
-        name: prometheus
+        app: prometheus
       annotations:
         prometheus.io/scrape: 'true'
         prometheus.io/port: '9913'
