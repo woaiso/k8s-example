@@ -2,7 +2,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: grafana-route
-  namespace: coletaconsciente
+  namespace: monitor
 spec:
   entryPoints:
     - https
@@ -19,7 +19,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: prometheus-route
-  namespace: coletaconsciente
+  namespace: monitor
 spec:
   entryPoints:
     - https
