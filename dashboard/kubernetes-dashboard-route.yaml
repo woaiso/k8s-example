@@ -13,4 +13,4 @@ spec:
       kind: Rule
       services:
         - name: kubernetes-dashboard
-          port: 9090
+          port: 443
