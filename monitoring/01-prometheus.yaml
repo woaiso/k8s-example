@@ -249,6 +249,15 @@ spec:
   selector:
     matchLabels:
       name: prometheus
+  volumeClaimTemplates:
+  - metadata:
+      name: prometheus
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: local-storage
+      resources:
+        requests:
+          storage: 5Gi
 ---
 apiVersion: v1
 kind: Service
