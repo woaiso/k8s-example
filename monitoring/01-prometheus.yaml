@@ -242,8 +242,10 @@ spec:
         volumeMounts:
           - name: prometheus-storage
             mountPath: /etc/config
+            subPath: prometheus-config
           - name: prometheus-storage
             mountPath: /prometheus-data
+            subPath: prometheus-data
       volumes:
         - name: config-volume
           configMap:
@@ -258,7 +260,7 @@ spec:
       storageClassName: local-storage
       resources:
         requests:
-          storage: 5Gi
+          storage: 2Gi
 ---
 apiVersion: v1
 kind: Service
