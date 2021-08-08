@@ -30,67 +30,13 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: grafana-data-02
-  namespace: monitor
-  labels:
-    app: grafana
-spec:
-  capacity:
-    storage: 2Gi
-  volumeMode: Filesystem
-  accessModes:
-  - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-storage
-  local:
-    path: /mnt/data/grafana-data-02
-  # 使用节点亲和性nodeAffinity保证被正确调度到对应的节点
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - k8s-master-node1
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: grafana-data-03
-  namespace: monitor
-  labels:
-    app: grafana
-spec:
-  capacity:
-    storage: 2Gi
-  volumeMode: Filesystem
-  accessModes:
-  - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-storage
-  local:
-    path: /mnt/data/grafana-data-03
-  # 使用节点亲和性nodeAffinity保证被正确调度到对应的节点
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - k8s-master-node1
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
   name: prometheus-data-01
   namespace: monitor
   labels:
     app: prometheus
 spec:
   capacity:
-    storage: 2Gi
+    storage: 4Gi
   volumeMode: Filesystem
   accessModes:
   - ReadWriteOnce
@@ -98,60 +44,6 @@ spec:
   storageClassName: local-storage
   local:
     path: /mnt/data/prometheus-data-01
-  # 使用节点亲和性nodeAffinity保证被正确调度到对应的节点
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - k8s-master-node1
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: prometheus-data-02
-  namespace: monitor
-  labels:
-    app: prometheus
-spec:
-  capacity:
-    storage: 2Gi
-  volumeMode: Filesystem
-  accessModes:
-  - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-storage
-  local:
-    path: /mnt/data/prometheus-data-02
-  # 使用节点亲和性nodeAffinity保证被正确调度到对应的节点
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - k8s-master-node1
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: prometheus-data-03
-  namespace: monitor
-  labels:
-    app: prometheus
-spec:
-  capacity:
-    storage: 2Gi
-  volumeMode: Filesystem
-  accessModes:
-  - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-storage
-  local:
-    path: /mnt/data/prometheus-data-03
   # 使用节点亲和性nodeAffinity保证被正确调度到对应的节点
   nodeAffinity:
     required:
