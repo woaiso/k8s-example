@@ -6,7 +6,7 @@ metadata:
 spec:
   scope: Namespaced
   group: traefik.containo.us
-  version: v1alpha1
+  version: v1
   names:
     kind: IngressRoute
     plural: ingressroutes
@@ -20,7 +20,7 @@ metadata:
 spec:
   scope: Namespaced
   group: traefik.containo.us
-  version: v1alpha1
+  version: v1
   names:
     kind: IngressRouteTCP
     plural: ingressroutetcps
@@ -34,7 +34,7 @@ metadata:
 spec:
   scope: Namespaced
   group: traefik.containo.us
-  version: v1alpha1
+  version: v1
   names:
     kind: Middleware
     plural: middlewares
@@ -47,7 +47,7 @@ metadata:
 spec:
   scope: Namespaced
   group: traefik.containo.us
-  version: v1alpha1
+  version: v1
   names:
     kind: TLSOption
     plural: tlsoptions
@@ -60,7 +60,7 @@ metadata:
 
 spec:
   group: traefik.containo.us
-  version: v1alpha1
+  version: v1
   names:
     kind: IngressRouteUDP
     plural: ingressrouteudps
@@ -75,7 +75,7 @@ metadata:
 
 spec:
   group: traefik.containo.us
-  version: v1alpha1
+  version: v1
   names:
     kind: TLSStore
     plural: tlsstores
@@ -89,7 +89,7 @@ metadata:
 
 spec:
   group: traefik.containo.us
-  version: v1alpha1
+  version: v1
   names:
     kind: TraefikService
     plural: traefikservices
@@ -103,7 +103,7 @@ metadata:
 
 spec:
   group: traefik.containo.us
-  version: v1alpha1
+  version: v1
   names:
     kind: ServersTransport
     plural: serverstransports
