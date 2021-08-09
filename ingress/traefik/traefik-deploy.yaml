@@ -39,6 +39,7 @@ spec:
       terminationGracePeriodSeconds: 1
       containers:
         - image: traefik:v2.4.13
+          imagePullPolicy: IfNotPresent
           name: traefik-ingress-lb
           ports:
             - name: http
