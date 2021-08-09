@@ -112,25 +112,26 @@ data:
         target_label: __address__
         replacement: ${1}:4194
         
-    - job_name: 'kubernetes-kube-state'
+    - job_name: "kube-state-metrics"
       kubernetes_sd_configs:
-      - role: pod
+      - role: endpoints
+        ## 指定kube-state-metrics组件所在的Namespace名称
+        namespaces:
+          names: ["kube-system"]
       relabel_configs:
+      ## 指定从 app.kubernetes.io/name 标签等于 kube-state-metrics 的 service 服务获取指标信息
+      - action: keep
+        source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name]
+        regex: kube-state-metrics
+      ## 下面配置也是为了适配 Grafana Dashboard 模板(编号13105图表)
       - action: labelmap
-        regex: __meta_kubernetes_pod_label_(.+)
-      - source_labels: [__meta_kubernetes_namespace]
-        action: replace
-        target_label: kubernetes_namespace
-      - source_labels: [__meta_kubernetes_pod_name]
-        action: replace
-        target_label: kubernetes_pod_name
-      - source_labels: [__meta_kubernetes_pod_label_grafanak8sapp]
-        regex: .*true.*
-        action: keep
-      - source_labels: ['__meta_kubernetes_pod_label_daemon', '__meta_kubernetes_pod_node_name']
-        regex: 'node-exporter;(.*)'
-        action: replace
-        target_label: nodename
+        regex: __meta_kubernetes_service_label_(.+)
+      - action: replace
+        source_labels: [__meta_kubernetes_namespace]
+        target_label: k8s_namespace
+      - action: replace
+        source_labels: [__meta_kubernetes_service_name]
+        target_label: k8s_sname
 ---
 kind: ServiceAccount
 apiVersion: v1
