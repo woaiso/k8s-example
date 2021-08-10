@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/component: exporter
     app.kubernetes.io/name: node-exporter
     app.kubernetes.io/part-of: kube-prometheus
-    app.kubernetes.io/version: 1.2.0
+    app.kubernetes.io/version: 1.2.1
   name: node-exporter
   namespace: monitor
 spec:
@@ -20,7 +20,7 @@ spec:
         app.kubernetes.io/component: exporter
         app.kubernetes.io/name: node-exporter
         app.kubernetes.io/part-of: kube-prometheus
-        app.kubernetes.io/version: 1.2.0
+        app.kubernetes.io/version: 1.2.1
     spec:
       containers:
       - args:
@@ -52,8 +52,9 @@ spec:
           name: root
           readOnly: true
       - args:
+      # https://github.com/brancz/kube-rbac-proxy/blob/master/README.md
         - --logtostderr
-        - --insecure-listen-address=[$(IP)]:9100
+        - --secure-listen-address=[$(IP)]:9100
         - --tls-cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
         - --upstream=http://127.0.0.1:9100/
         env:

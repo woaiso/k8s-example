@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/component: exporter
     app.kubernetes.io/name: node-exporter
     app.kubernetes.io/part-of: kube-prometheus
-    app.kubernetes.io/version: 1.2.0
+    app.kubernetes.io/version: 1.2.1
   name: node-exporter
   namespace: monitor
 spec:
@@ -26,7 +26,7 @@ metadata:
     app.kubernetes.io/component: exporter
     app.kubernetes.io/name: node-exporter
     app.kubernetes.io/part-of: kube-prometheus
-    app.kubernetes.io/version: 1.2.0
+    app.kubernetes.io/version: 1.2.1
   name: node-exporter
   namespace: monitor
 ---
@@ -37,7 +37,7 @@ metadata:
     app.kubernetes.io/component: exporter
     app.kubernetes.io/name: node-exporter
     app.kubernetes.io/part-of: kube-prometheus
-    app.kubernetes.io/version: 1.2.0
+    app.kubernetes.io/version: 1.2.1
   name: node-exporter
   namespace: monitor
 spec:

@@ -118,9 +118,12 @@ data:
         replacement: $1
         action: replace
     - job_name: 'node-exporter'
+      tls_config:
+        ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+      bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
       kubernetes_sd_configs:
-          - role: endpoints
-          namespaces:
+      - role: endpoints
+        namespaces:
           names: ['monitor']
       relabel_configs:
         - source_labels: [__meta_kubernetes_endpoints_name]
