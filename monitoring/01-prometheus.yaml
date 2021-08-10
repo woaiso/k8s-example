@@ -122,6 +122,7 @@ data:
       tls_config:
         ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
         server_name: ['192.168.50.200', '192.168.50.210', '192.168.50.200']
+        insecure_skip_verify: true
       bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
       kubernetes_sd_configs:
       - role: endpoints
