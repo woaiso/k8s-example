@@ -118,9 +118,12 @@ data:
         replacement: $1
         action: replace
     - job_name: 'node-exporter'
-      scrape_interval: 15s
-      static_configs:
-        - targets: ['node-exporter:9100']
+      kubernetes_sd_configs:
+          - role: endpoints
+      relabel_configs:
+        - source_labels: [__meta_kubernetes_endpoints_name]
+          regex: 'node-exporter'
+          action: keep
 ---
 kind: ServiceAccount
 apiVersion: v1
