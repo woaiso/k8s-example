@@ -117,6 +117,10 @@ data:
         target_label: container
         replacement: $1
         action: replace
+    - job_name: 'node-exporter'
+      scrape_interval: 15s
+      target_groups:
+        - targets: ['node-exporter:9100']
 ---
 kind: ServiceAccount
 apiVersion: v1
