@@ -2,17 +2,17 @@
 
 ```shell
 # 生成私钥
-openssl genrsa -out woaisok8s.key 4096
+openssl genrsa -out tls.key 4096
 # 生成根证书
-openssl req -new -sha256 -out woaisok8s.csr -key woaisok8s.key -config ssl.conf
+openssl req -new -sha256 -out tls.csr -key tls.key -config ssl.conf
 # 查看根证书
-openssl req -text -noout -in woaisok8s.csr
+openssl req -text -noout -in tls.csr
 # 生成证书
-openssl x509 -req -days 3650 -in woaisok8s.csr -signkey woaisok8s.key -out woaisok8s.crt -extensions req_ext -extfile ssl.conf
+openssl x509 -req -days 3650 -in tls.csr -signkey tls.key -out tls.crt -extensions req_ext -extfile ssl.conf
 # 加入钥匙串
-sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain woaisok8s.crt
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain tls.crt
 sudo apachectl -k restart
 
 # 加入k8s
-kubectl create secret generic traefik-cert --from-file=ssl/woaisok8s.crt --from-file=ssl/woaisok8s.key -n kube-system
+kubectl create secret generic traefik-cert --from-file=ssl/tls.crt --from-file=ssl/tls.key -n kube-system
 ```
