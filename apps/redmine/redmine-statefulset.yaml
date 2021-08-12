@@ -39,6 +39,10 @@ spec:
         volumeMounts:
         - name: redmine-store
           mountPath: /usr/src/redmine/files
+          subPath: files
+        - name: redmine-store
+          mountPath: /usr/src/redmine/public/themes/PurpleMine2
+          subPath: theme/PurpleMine2
   volumeClaimTemplates:
   - metadata:
       name: redmine-store
