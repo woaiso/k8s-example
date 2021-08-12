@@ -26,7 +26,7 @@ spec:
             memory: 200Mi
         env:
           - name: REDMINE_DB_MYSQL
-            value: mysql
+            value: mysql-0.mysql
           - name: REDMINE_DB_USERNAME
             value: root
           - name: REDMINE_DB_PASSWORD
