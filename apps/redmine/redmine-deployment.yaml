@@ -23,7 +23,13 @@ spec:
             cpu: 200m
             memory: 200Mi
         env:
-        - name: GET_HOSTS_FROM
-          value: dns
+          - name: REDMINE_DB_MYSQL
+            value: mysql
+          - name: REDMINE_DB_USERNAME
+            value: root
+          - name: REDMINE_DB_PASSWORD
+            value: ''
+          - name: REDMINE_DB_DATABASE
+            value: redminedb
         ports:
         - containerPort: 3000

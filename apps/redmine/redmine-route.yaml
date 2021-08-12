@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: redmine-route
+spec:
+  entryPoints:
+    - https
+  tls:
+    secretName: traefik-cert
+  routes:
+    - match: Host(`redmine.woaisok8s.com`) 
+      kind: Rule
+      services:
+        - name: redmine-svc
+          port: 443
