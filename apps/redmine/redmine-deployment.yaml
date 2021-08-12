@@ -35,3 +35,15 @@ spec:
             value: redminedb
         ports:
         - containerPort: 3000
+        volumeMounts:
+        - name: redmine-store
+          mountPath: /usr/src/redmine/files
+  volumeClaimTemplates:
+  - metadata:
+      name: redmine-store
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: local-storage
+      resources:
+        requests:
+          storage: 1Gi
