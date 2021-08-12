@@ -9,7 +9,7 @@ spec:
     matchLabels:
       app: redmine
   serviceName: "redmine-svc"
-  replicas: 3 # by default is 1
+  replicas: 1 # by default is 1
   template:
     metadata:
       labels:
