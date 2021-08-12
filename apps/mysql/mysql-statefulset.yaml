@@ -42,6 +42,9 @@ spec:
           mountPath: /mnt/conf.d
         - name: config-map
           mountPath: /mnt/config-map
+        - name: config-map
+          mountPath: /etc/mysql/my.cnf
+          subPath: my.cnf
       - name: clone-mysql
         image: registry.cn-hangzhou.aliyuncs.com/hxpdocker/xtrabackup:1.0
         command:
@@ -80,6 +83,9 @@ spec:
           subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
+        - name: config-map
+          mountPath: /etc/mysql/my.cnf
+          subPath: my.cnf
         resources:
           requests:
             cpu: 100m
@@ -150,6 +156,9 @@ spec:
           subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
+        - name: config-map
+          mountPath: /etc/mysql/my.cnf
+          subPath: my.cnf
         resources:
           requests:
             cpu: 100m
