@@ -15,25 +15,12 @@ data:
     super-read-only
   my.cnf: |
     [client]
-    port   = 3306
-    socket   = /var/run/mysqld/mysqld.sock
     default-character-set=utf8mb4
     [mysql]
     default-character-set=utf8mb4
-    [mysqld_safe]
-    pid-file = /var/run/mysqld/mysqld.pid
-    socket   = /var/run/mysqld/mysqld.sock
-    nice   = 0
     [mysqld]
-    #开启binlog
-    log-bin=master-bin
-    log-bin-index=master-bin.index
-    skip-name-resolve
-    #服务端使用的字符集默认为UTF8
     character_set_server=utf8mb4
     collation-server=utf8mb4_unicode_ci
     init_connect='SET NAMES utf8mb4'
-
-    max_connections=1024
     !includedir /etc/mysql/conf.d/
     !includedir /etc/mysql/mysql.conf.d/
