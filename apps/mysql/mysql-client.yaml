@@ -15,6 +15,9 @@ spec:
       containers:
       - name: mysql-client
         image: mysql:5.7
+        env:
+        - name: MYSQL_ALLOW_EMPTY_PASSWORD
+          value: "1"
         resources:
           limits:
             cpu: 200m
