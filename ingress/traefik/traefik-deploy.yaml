@@ -38,7 +38,7 @@ spec:
       serviceAccountName: traefik-ingress-controller
       terminationGracePeriodSeconds: 1
       containers:
-        - image: traefik:v2.4.13
+        - image: traefik:v2.5.0
           imagePullPolicy: IfNotPresent
           name: traefik-ingress-lb
           ports:
