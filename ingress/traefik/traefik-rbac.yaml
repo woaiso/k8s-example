@@ -43,6 +43,9 @@ rules:
   - apiGroups: ["traefik.containo.us"]
     resources: ["traefikservices"]
     verbs: ["get","list","watch"]
+  - apiGroups: ["traefik.containo.us"]
+    resources: ["middlewaretcps"]
+    verbs: ["get","list","watch"]
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
